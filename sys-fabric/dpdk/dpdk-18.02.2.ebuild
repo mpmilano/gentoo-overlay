@@ -16,7 +16,7 @@ IUSE=""
 
 RDEPEND="sys-devel/make sys-apps/coreutils >=dev-lang/python-3.2.0 sys-process/numactl"
 DEPEND="${RDEPEND}"
-DOCS=( README )
+DOCS=( doc )
 
 S="${WORKDIR}/dpdk-stable-${PV}"
 
@@ -30,9 +30,9 @@ src_compile() {
 }
 
 src_install() {
+		einstalldocs
 		emake DESTDIR="${D}/usr" install T=x86_64-native-linuxapp-gcc
 		einstalldocs
 		cd "${D}/usr"; ln -s . usr
-		einstalldocs
 }
 
