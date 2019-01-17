@@ -19,5 +19,5 @@ IUSE=""
 
 RDEPEND="sci-mathematics/z3 dev-python/virtualenv "
 DEPEND="${RDEPEND}"
-DOCS=( README )
+#DOCS=( README )
 
