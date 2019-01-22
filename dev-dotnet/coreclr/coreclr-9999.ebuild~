@@ -1,0 +1,21 @@
+EAPI=5
+EGIT_REPO_URI="git://github.com/dotnet/coreclr.git"
+inherit git-r3
+DESCRIPTION="CoreCLR"
+HOMEPAGE="https://github.com/dotnet/core"
+
+LICENSE="MIT"
+SLOT=0
+
+RDEPEND="
+sys-libs/llvm-libunwind
+dev-util/cmake
+sys-devel/clang
+sys-devel/llvm
+dev-util/lldb
+"
+DEPEND="${RDEPEND}"
+
+src_compile(){
+    ./build.sh
+}

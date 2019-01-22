@@ -1,0 +1,23 @@
+EAPI=5
+EGIT_REPO_URI="git://github.com/preshing/junction.git"
+inherit git-r3
+inherit cmake-utils
+DESCRIPTION="Concurrent data structures in C++"
+HOMEPAGE="https://github.com/preshing/junction"
+
+LICENSE="BSD"
+SLOT=0
+
+RDEPEND="
+dev-libs/turf
+dev-util/cmake
+"
+DEPEND="${RDEPEND}"
+
+src_prepare {
+    pwd
+    ls
+    exit 1
+}
+
+
