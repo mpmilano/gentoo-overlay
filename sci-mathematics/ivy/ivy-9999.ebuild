@@ -10,6 +10,7 @@ DESCRIPTION="IVy is a tool for specifying, modeling, implementing and verifying 
 HOMEPAGE="http://microsoft.github.io/ivy/"
 #SRC_URI="https://github.com/Microsoft/ivy/archive/v${PV}-msv.tar.gz"
 EGIT_REPO_URI="https://github.com/Microsoft/ivy.git"
+EGIT_BRANCH=quic18
 #EGIT_COMMIT="v${PV}-msv"
 
 LICENSE="GPL-3"

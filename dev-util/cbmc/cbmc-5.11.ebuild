@@ -4,7 +4,7 @@ inherit cmake-utils
 
 DESCRIPTION="CBMC is a Bounded Model Checker for ANSI-C and C++ programs."
 HOMEPAGE="http://www.cprover.org/cbmc/"
-SRC_URI="https://github.com/diffblue/cbmc/archive/${P}.tar.gz"
+SRC_URI="https://github.com/diffblue/cbmc/archive/${P}.tar.gz http://ftp.debian.org/debian/pool/main/m/minisat2/minisat2_2.2.1.orig.tar.gz"
 
 SLOT="0"
 KEYWORDS="~amd64"
@@ -30,6 +30,8 @@ src_unpack () {
 		sed s/'java-testing-utils'//g -i CMakeLists.txt
 		sed s/'java-unit'//g -i CMakeLists.txt
 		sed s/'miniz'//g -i CMakeLists.txt
+		sed s%'http://ftp.debian.org/debian/pool/main/m/minisat2/minisat2_2.2.1.orig.tar.gz'%'/usr/portage/distfiles/minisat2_2.2.1.orig.tar.gz'%g -i src/solvers/CMakeLists.txt
+		sed s%'http://ftp.debian.org/debian/pool/main/m/minisat2/minisat2_2.2.1.orig.tar.gz'%'/usr/portage/distfiles/minisat2_2.2.1.orig.tar.gz'%g -i src/Makefile
 	else
 		exit 1
 	fi
