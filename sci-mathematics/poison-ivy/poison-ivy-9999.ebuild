@@ -22,9 +22,9 @@ DEPEND="${RDEPEND}"
 DOCS=( README.md )
 
 src_prepare(){
-  distutils-r1_src_prepare
   cat > setup.py<<EOF
 from distutils.core import setup
 setup(name='poison-ivy', version='1.0', scripts=['poisonivy.py'])
 EOF
+  distutils-r1_src_prepare
 }
