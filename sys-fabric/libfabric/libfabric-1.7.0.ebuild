@@ -13,7 +13,7 @@ LICENSE="BSD"
 SLOT=0
 
 RDEPEND="
-sys-fabric/librdmacm
+>=sys-fabric/librdmacm-1.1.0
 sys-fabric/libibverbs
 sys-fabric/libibumad
 "
