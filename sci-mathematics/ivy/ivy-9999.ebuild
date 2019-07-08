@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="sci-mathematics/z3[python_single_target_python2_7] dev-python/virtualenv dev-python/tarjan dev-python/pygraphviz sci-mathematics/z3[python]"
+RDEPEND="sci-mathematics/z3[python_targets_python2_7] dev-python/virtualenv dev-python/tarjan dev-python/pygraphviz sci-mathematics/z3[python] <=sci-mathematics/z3-4.7.0"
 DEPEND="${RDEPEND}"
 #DOCS=( README )
 
