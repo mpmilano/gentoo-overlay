@@ -24,7 +24,7 @@ x11-libs/libXrandr
 media-libs/mesa
 media-libs/fontconfig:1.0
 x11-libs/libXi
-media-libs/gstreamer:0.10
+media-libs/gstreamer:1.0
 media-libs/mesa
 x11-libs/libSM
 x11-libs/libXrender
