@@ -14,3 +14,12 @@ KEYWORDS=amd64
 
 RDEPEND="=virtual/derecho-dependencies-${PV}"
 DEPEND="${RDEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_BUILD_TYPE=Relwithdebinfo
+	)
+
+	cmake-utils_src_configure
+
+}

@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -28,7 +28,7 @@ media-libs/gstreamer:1.0
 media-libs/mesa
 x11-libs/libSM
 x11-libs/libXrender
-media-sound/apulse
+media-sound/pulseaudio
 x11-libs/libXcomposite
 dev-qt/qtmultimedia
 dev-qt/qtwebengine
@@ -83,4 +83,12 @@ src_install() {
 	rmdir ${WORKDIR}/${P}
 	cp -Rp "${WORKDIR}/"* "${D}"
 	if [ ! $? = 0 ]; then exit 1; fi
+}
+
+pkg_postinst(){
+	xdg_mimeinfo_database_update
+}
+
+pkg_postrm(){
+	xdg_mimeinfo_database_update
 }
