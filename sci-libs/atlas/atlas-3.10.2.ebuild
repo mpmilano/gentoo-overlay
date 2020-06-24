@@ -52,6 +52,9 @@ src_configure() {
 	[[ ${mycc} == *gcc* ]] && mycc=gcc
 	atlas_configure() {
 		local myconf=(
+		      "-Si bozol1 1"
+		      "-Si archdef 1"
+		      "-Si latune 0"
 			--prefix="${ED}/usr"
 			--libdir="${ED}/usr/$(get_libdir)"
 			--incdir="${ED}/usr/include"
