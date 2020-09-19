@@ -1,4 +1,4 @@
-EAPI=6
+EAPI=7
 EGIT_REPO_URI="git://github.com/google/xi-editor.git"
 EGIT_COMMIT="v0.${PV}"
 

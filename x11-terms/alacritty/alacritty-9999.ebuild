@@ -1,4 +1,4 @@
-EAPI=6
+EAPI=7
 EGIT_REPO_URI="git://github.com/jwilm/alacritty.git"
 
 CRATES="libc-0.2.23

@@ -1,7 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="a command line search tool that combines usability with raw speed"
 HOMEPAGE="https://github.com/BurntSushi/ripgrep"

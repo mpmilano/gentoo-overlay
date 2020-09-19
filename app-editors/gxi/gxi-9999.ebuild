@@ -1,4 +1,4 @@
-EAPI=6
+EAPI=7
 EGIT_REPO_URI="git://github.com/bvinc/gxi.git"
 
 CRATES="cairo-rs-0.1.2
