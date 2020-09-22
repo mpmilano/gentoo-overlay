@@ -1,0 +1,49 @@
+# HG changeset patch
+# User Eion Robb <eion@robbmob.com>
+# Date 1600724066 -43200
+#      Tue Sep 22 09:34:26 2020 +1200
+# Node ID e0a4cbfeb33316d37d7aedbee26afac44d59d513
+# Parent  a4c2aea33ddce0e0cfe658852ecee602e00872da
+Fix auth when using legacy tokens
+
+diff -r a4c2aea33ddc -r e0a4cbfeb333 slack-api.c
+--- a/slack-api.c	Thu Jun 25 18:31:45 2020 -0400
++++ b/slack-api.c	Tue Sep 22 09:34:26 2020 +1200
+@@ -79,7 +79,7 @@
+ static gboolean api_retry(gpointer data) {
+ 	SlackAPICall *call = data;
+ 	call->fetch = purple_util_fetch_url_request_len_with_account(call->sa->account,
+-			call->url, TRUE, NULL, TRUE, NULL, FALSE, 4096*1024,
++			call->url, FALSE, NULL, TRUE, NULL, FALSE, 4096*1024,
+ 			api_cb, call);
+ 	return FALSE;
+ }
+diff -r a4c2aea33ddc -r e0a4cbfeb333 slack.c
+--- a/slack.c	Thu Jun 25 18:31:45 2020 -0400
++++ b/slack.c	Tue Sep 22 09:34:26 2020 +1200
+@@ -209,6 +209,12 @@
+ 		 * addresses, so we manually split it here.
+ 		 */
+ 		host = g_strstr_len(username, -1, "@");
++		if (host) {
++			gchar *percent = g_strrstr(host, "%");
++			if (percent) {
++				*percent = '\0';
++			}
++		}
+ 	}
+ 
+ 	/* if we had a legacy token and it failed to find a host, try the % as well
+@@ -245,8 +251,10 @@
+ 		 * split and throw a null terminator on the end.
+ 		 */
+ 		sa->email = g_strdup(purple_account_get_username(account));
+-		gchar *percent = g_strrstr(sa->email, "%");
+-		*percent = '\0';
++		gchar *percent = g_strrstr(sa->email, "%");
++		if (percent) {
++			*percent = '\0';
++		}
+ 	}
+ 
+ 	sa->rtm_call = g_hash_table_new_full(g_direct_hash,        g_direct_equal,        NULL, (GDestroyNotify)slack_rtm_cancel);

@@ -1,7 +1,7 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
 inherit eutils autotools git-r3
 
@@ -19,3 +19,8 @@ RDEPEND="dev-libs/json-glib
 	 net-im/pidgin"
 DEPEND="${RDEPEND}"
 DOCS=( README.md COPYING )
+
+src_prepare() {
+  eapply "${FILESDIR}/${P}-fix-legacy-auth.patch"
+  eapply_user
+}
